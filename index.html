@@ -13,8 +13,8 @@
         <div class="title-container">
             <h1 class="page-title">Library</h1>
         </div>
-        <dialog class="dialog>
-            <form action="/blank" method="post">
+        <dialog class="dialog">
+            <form action="" method="post">
                 <div>
                     <label for="title">Book Title:</label>
                     <input type="text" id="title" name="title">
@@ -27,14 +27,16 @@
                     <label for="pages">Number of Pages:</label>
                     <input type="number" id="pages" name="pages">
                 </div>
-                <div>
+                <div class="read-status-form">
                     <label for="read">Have you read this book?</label>
                     <select name="read" id="read">
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
                 </div>
-                <button type="submit">Submit</button>
+                <div class="form-button-div">
+                    <button type="submit" class="form-button">Submit</button>
+                </div>
 
             </form>
         </dialog>
