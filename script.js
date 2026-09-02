@@ -30,15 +30,22 @@ const mainContainer = document.getElementById('main-container');
 
 myLibrary.forEach(book => {
     const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book');
+    const bookDetails = document.createElement('div');
+    const readStatus = document.createElement('div');
 
-    bookDiv.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
+    bookDiv.classList.add('book');
+    bookDetails.classList.add('book-details');
+    readStatus.classList.add('read-status');
+
+    bookDetails.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
 
     if (book.read === true) {
-        bookDiv.innerHTML += `<p class = 'book-read'>Read</p>`;
+        readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
     } else {
-        bookDiv.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
+        readStatus.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
     }
 
     mainContainer.appendChild(bookDiv);
+    bookDiv.appendChild(bookDetails);
+    bookDiv.appendChild(readStatus);
 })
