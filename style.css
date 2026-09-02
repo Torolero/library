@@ -47,8 +47,47 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    border: solid 5px #767d8a;
+    margin: 1% 5%;
+    border-radius: 25px;
+    background-color: 	#767d8a;
+}
+
+.title-container {
+    grid-column: 2 /3;
+    justify-self: center;
+    font-size: 24px;
+}
+
+.page-title {
+    color: #383535;
+}
+
+.button-container {
+    justify-self: end;
+    padding-right: 15px;
+}
+
+.new-book {
+    background-color: #927b6a;
+    border: solid #383535 2px;
+    border-radius: 25px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.new-book:hover {
+  transform: scale(1.1, 1.1);
+  opacity: 0.9;
+}
+
+
 .container {
-    margin: 5%;
+    margin: 3% 5%;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -67,6 +106,8 @@ h1, h2, h3, h4 {
     /* display: flex;
     flex-direction: column;
     align-items: center; */
+    border-left: #383535 solid 10px;
+    border-top: #383535 solid 10px;
 }
 
 .book-title, .book-author, .book-pages, .book-read, .book-not-read {
