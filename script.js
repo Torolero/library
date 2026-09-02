@@ -6,6 +6,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.bookId = crypto.randomUUID();
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -14,5 +15,11 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 
-addBookToLibrary("Best book", "John", 69, true);
-addBookToLibrary("Worst book", "Doe", 96, false);
+
+
+let titlePrompt = prompt("Title:");
+let authorPrompt = prompt("Author:");
+let pagesPrompt = prompt("Pages:");
+let readPrompt = prompt("Read?");
+
+// addBookToLibrary(titlePrompt, authorPrompt, pagesPrompt, readPrompt);
