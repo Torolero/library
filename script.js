@@ -60,8 +60,16 @@ showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-closeButton.addEventListener("click", (event) => {
-  event.preventDefault(); // We don't want to submit this fake form
-  dialog.close();
+const form = document.querySelector('#myForm');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const values = Array.from(formData.values());
+
+    addBookToLibrary(...values);
+
+    dialog.close()
 });
 
