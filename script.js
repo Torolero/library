@@ -23,7 +23,7 @@ function addBookToLibrary(title, author, pages, read) {
 // let readPrompt = prompt("Read?");
 
 addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
-// addBookToLibrary("Divergent", "Veronica Roth", 576, false);
+addBookToLibrary("Divergent", "Veronica Roth", 576, false);
 
 
 const mainContainer = document.getElementById('main-container');
@@ -32,12 +32,12 @@ myLibrary.forEach(book => {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book');
 
-    bookDiv.innerHTML = `<p>${book.title}</p> <p>Author: ${book.author}</p> <p>${book.pages} Pages</p>`;
+    bookDiv.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
 
     if (book.read === true) {
-        bookDiv.innerHTML += `<p>Read</p>`;
+        bookDiv.innerHTML += `<p class = 'book-read'>Read</p>`;
     } else {
-        bookDiv.innerHTML += `<p>Not Read</p>`;
+        bookDiv.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
     }
 
     mainContainer.appendChild(bookDiv);
