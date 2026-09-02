@@ -13,6 +13,31 @@
         <div class="title-container">
             <h1 class="page-title">Library</h1>
         </div>
+        <dialog class="dialog>
+            <form action="/blank" method="post">
+                <div>
+                    <label for="title">Book Title:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div>
+                    <label for="pages">Number of Pages:</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <div>
+                    <label for="read">Have you read this book?</label>
+                    <select name="read" id="read">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+
+            </form>
+        </dialog>
         <div class="button-container">
             <button class="new-book">New Book</button>
         </div>
@@ -25,5 +50,9 @@
         <div class="book"></div>
         <div class="book"></div>
     </div>
+
+
+    
+    
 </body>
 </html>

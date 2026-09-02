@@ -49,3 +49,18 @@ myLibrary.forEach(book => {
     bookDiv.appendChild(bookDetails);
     bookDiv.appendChild(readStatus);
 })
+
+
+//Dialog code:
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector(".new-book");
+const closeButton = document.querySelector("form button");
+
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+closeButton.addEventListener("click", (event) => {
+  event.preventDefault(); // We don't want to submit this fake form
+  dialog.close();
+});
