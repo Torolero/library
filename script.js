@@ -15,11 +15,30 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 
+//commenting out prompts to work on page more efficiently.
+
+// let titlePrompt = prompt("Title:");
+// let authorPrompt = prompt("Author:");
+// let pagesPrompt = prompt("Pages:");
+// let readPrompt = prompt("Read?");
+
+addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
+// addBookToLibrary("Divergent", "Veronica Roth", 576, false);
 
 
-let titlePrompt = prompt("Title:");
-let authorPrompt = prompt("Author:");
-let pagesPrompt = prompt("Pages:");
-let readPrompt = prompt("Read?");
+const mainContainer = document.getElementById('main-container');
 
-// addBookToLibrary(titlePrompt, authorPrompt, pagesPrompt, readPrompt);
+myLibrary.forEach(book => {
+    const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book');
+
+    bookDiv.innerHTML = `<p>${book.title}</p> <p>Author: ${book.author}</p> <p>${book.pages} Pages</p>`;
+
+    if (book.read === true) {
+        bookDiv.innerHTML += `<p>Read</p>`;
+    } else {
+        bookDiv.innerHTML += `<p>Not Read</p>`;
+    }
+
+    mainContainer.appendChild(bookDiv);
+})
