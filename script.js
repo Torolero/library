@@ -14,26 +14,43 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
 
-
-//commenting out prompts to work on page more efficiently.
-
-// let titlePrompt = prompt("Title:");
-// let authorPrompt = prompt("Author:");
-// let pagesPrompt = prompt("Pages:");
-// let readPrompt = prompt("Read?");
-
-addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
-addBookToLibrary("Divergent", "Veronica Roth", 576, false);
+// addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
+// addBookToLibrary("Divergent", "Veronica Roth", 576, false);
 
 
 
 const mainContainer = document.getElementById('main-container');
 
+let lastProcessedItems = 0;
+
 function addBooksToDom()
 {
+    for (let i = lastProcessedItems; i < myLibrary.length; i++) {
+        function iterateArray(book) {
+            const bookDiv = document.createElement('div');
+            const bookDetails = document.createElement('div');
+            const readStatus = document.createElement('div');
 
+            bookDiv.classList.add('book');
+            bookDetails.classList.add('book-details');
+            readStatus.classList.add('read-status');
+
+            bookDetails.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
+
+            if (book.read === true) {
+                readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
+            } else {
+                readStatus.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
+            }
+
+            mainContainer.appendChild(bookDiv);
+            bookDiv.appendChild(bookDetails);
+            bookDiv.appendChild(readStatus);
+        }
+        iterateArray(myLibrary[i]);
+    }
+    lastProcessedItems = myLibrary.length;
 }
-
 
 
 //Dialog code:
@@ -54,7 +71,8 @@ form.addEventListener('submit', function(event) {
     const values = Array.from(formData.values());
 
     addBookToLibrary(...values);
+    addBooksToDom();
+    
 
     dialog.close()
 });
-
