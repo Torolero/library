@@ -84,3 +84,16 @@ form.addEventListener('submit', function(event) {
 addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
 addBookToLibrary("Divergent", "Veronica Roth", 576, false);
 addBooksToDom();
+
+
+
+
+
+const removeButtons = document.querySelectorAll('.remove-button');
+
+removeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        console.log("clicked");
+    });
+})
+
