@@ -50,10 +50,30 @@ function addBooksToDom()
             bookDiv.appendChild(readStatus);
             bookDiv.appendChild(buttonDiv);
             buttonDiv.appendChild(bookButton);
+
+            bookDiv.dataset.bookId = `${book.bookId}`;
+            bookButton.dataset.bookId = `${book.bookId}`;
+
+            
         }
         iterateArray(myLibrary[i]);
+        
     }
     lastProcessedItems = myLibrary.length;
+
+    const testButtons = document.querySelectorAll(".remove-button")
+    const allBooks = document.querySelectorAll('.book');
+    const parent = document.getElementById("main-container");
+
+    testButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            allBooks.forEach((book) => {
+                if(btn.dataset.bookId === book.dataset.bookId) {
+                parent.removeChild(book);
+                }
+            })
+        });
+    });
 }
 
 
@@ -81,19 +101,24 @@ form.addEventListener('submit', function(event) {
     dialog.close()
 });
 
-addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
-addBookToLibrary("Divergent", "Veronica Roth", 576, false);
+
+
+
+addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, "true");
+addBookToLibrary("Divergent", "Veronica Roth", 576, "false");
+addBookToLibrary("The Bible", "Various", 1200, "true");
+
 addBooksToDom();
 
 
 
 
 
-const removeButtons = document.querySelectorAll('.remove-button');
 
-removeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        console.log("clicked");
-    });
-})
+
+
+
+
+
+
 
