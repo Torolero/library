@@ -14,10 +14,6 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
 
-// addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
-// addBookToLibrary("Divergent", "Veronica Roth", 576, false);
-
-
 
 const mainContainer = document.getElementById('main-container');
 
@@ -30,12 +26,18 @@ function addBooksToDom()
             const bookDiv = document.createElement('div');
             const bookDetails = document.createElement('div');
             const readStatus = document.createElement('div');
+            const buttonDiv = document.createElement('div');
+            const bookButton = document.createElement('button');
 
             bookDiv.classList.add('book');
             bookDetails.classList.add('book-details');
             readStatus.classList.add('read-status');
+            buttonDiv.classList.add('remove-button-div');
+            bookButton.classList.add('remove-button');
 
             bookDetails.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
+
+            bookButton.textContent = `Remove`;
 
             if (book.read == 'true') {
                 readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
@@ -46,6 +48,8 @@ function addBooksToDom()
             mainContainer.appendChild(bookDiv);
             bookDiv.appendChild(bookDetails);
             bookDiv.appendChild(readStatus);
+            bookDiv.appendChild(buttonDiv);
+            buttonDiv.appendChild(bookButton);
         }
         iterateArray(myLibrary[i]);
     }
@@ -76,3 +80,7 @@ form.addEventListener('submit', function(event) {
 
     dialog.close()
 });
+
+addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
+addBookToLibrary("Divergent", "Veronica Roth", 576, false);
+addBooksToDom();
