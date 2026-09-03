@@ -37,7 +37,7 @@ function addBooksToDom()
 
             bookDetails.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
 
-            if (book.read === true) {
+            if (book.read == 'true') {
                 readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
             } else {
                 readStatus.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
