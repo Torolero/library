@@ -22,35 +22,16 @@ function addBookToLibrary(title, author, pages, read) {
 // let pagesPrompt = prompt("Pages:");
 // let readPrompt = prompt("Read?");
 
-// addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
-// addBookToLibrary("Divergent", "Veronica Roth", 576, false);
+addBookToLibrary("The Hunger Games", "Suzanne Collins", 384, true);
+addBookToLibrary("Divergent", "Veronica Roth", 576, false);
 
 
 
 const mainContainer = document.getElementById('main-container');
 
-function addBooksToDom() {
-    myLibrary.forEach(book => {
-        const bookDiv = document.createElement('div');
-        const bookDetails = document.createElement('div');
-        const readStatus = document.createElement('div');
+function addBooksToDom()
+{
 
-        bookDiv.classList.add('book');
-        bookDetails.classList.add('book-details');
-        readStatus.classList.add('read-status');
-
-        bookDetails.innerHTML = `<p class = 'book-title'>${book.title}</p> <p class = 'book-author'>Author: ${book.author}</p> <p class = 'book-pages'>${book.pages} Pages</p>`;
-
-        if (book.read === true) {
-            readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
-        } else {
-            readStatus.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
-        }
-
-        mainContainer.appendChild(bookDiv);
-        bookDiv.appendChild(bookDetails);
-        bookDiv.appendChild(readStatus);
-    });
 }
 
 
@@ -73,7 +54,6 @@ form.addEventListener('submit', function(event) {
     const values = Array.from(formData.values());
 
     addBookToLibrary(...values);
-    addBooksToDom();
 
     dialog.close()
 });
