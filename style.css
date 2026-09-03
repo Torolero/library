@@ -18,6 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #ebf2f5;
   font-family: "Quicksand", sans-serif;
+  border: solid #383535 10px;
 }
 
 /* 3. Remove default margins for typography and common elements */
@@ -86,9 +87,16 @@ h1, h2, h3, h4 {
   opacity: 0.9;
 }
 
+.test {
+    border: dashed 4px #383535;
+    height: 80vh;
+    margin: 3% 5%;
+    border-radius: 25px;
+    background-color: #EDE7DD;
+}
 
 .container {
-    margin: 3% 5%;
+    margin: 8px;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
