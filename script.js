@@ -25,7 +25,7 @@ function addBooksToDom()
         function iterateArray(book) {
             const bookDiv = document.createElement('div');
             const bookDetails = document.createElement('div');
-            const readStatus = document.createElement('div');
+            const readStatus = document.createElement('button');
             const buttonDiv = document.createElement('div');
             const bookButton = document.createElement('button');
 
@@ -40,9 +40,11 @@ function addBooksToDom()
             bookButton.textContent = `Remove`;
 
             if (book.read == 'true') {
-                readStatus.innerHTML += `<p class = 'book-read'>Read</p>`;
+                readStatus.textContent += `Read`;
+                readStatus.classList.add('book-read');
             } else {
-                readStatus.innerHTML += `<p class = 'book-not-read'>Not Read</p>`;
+                readStatus.textContent += `Not Read`;
+                readStatus.classList.add('book-not-read');
             }
 
             mainContainer.appendChild(bookDiv);
