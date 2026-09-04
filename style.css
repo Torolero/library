@@ -148,6 +148,7 @@ h1, h2, h3, h4 {
 .book-read, .book-not-read {
     border-radius: 25px;
     padding: 1px 5px;
+    transition: all 0.5s ease-in-out;
 }
 
 .book-read {

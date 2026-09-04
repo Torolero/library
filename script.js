@@ -19,8 +19,7 @@ const mainContainer = document.getElementById('main-container');
 
 let lastProcessedItems = 0;
 
-function addBooksToDom()
-{
+function addBooksToDom() {
     for (let i = lastProcessedItems; i < myLibrary.length; i++) {
         function iterateArray(book) {
             const bookDiv = document.createElement('div');
@@ -98,7 +97,7 @@ form.addEventListener('submit', function(event) {
 
     addBookToLibrary(...values);
     addBooksToDom();
-    
+    changeButton.toggle();
 
     dialog.close()
 });
@@ -112,15 +111,28 @@ addBookToLibrary("The Bible", "Various", 1200, "true");
 
 addBooksToDom();
 
+Book.prototype.toggle = function() {
+  const readButtons = document.querySelectorAll('.read-status');
+
+  readButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (btn.textContent === "Read") {
+            btn.textContent = "Not Read";
+            btn.classList.remove('book-read')
+            btn.classList.add('book-not-read');
+        } else {
+            btn.textContent = "Read";
+            btn.classList.remove('book-not-read')
+            btn.classList.add('book-read');
+        }
+    });
+  });
+};
+
+const changeButton = new Book();
 
 
-
-
-
-
-
-
-
+// changeButton.toggle();
 
 
 
