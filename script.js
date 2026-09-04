@@ -111,28 +111,36 @@ addBookToLibrary("The Bible", "Various", 1200, "true");
 
 addBooksToDom();
 
+
+
+
+
+function handleClick(event) {
+    const btn = event.currentTarget;
+
+    if (btn.textContent === "Read") {
+        btn.textContent = "Not Read";
+        btn.classList.remove('book-read')
+        btn.classList.add('book-not-read');
+    } else {
+        btn.textContent = "Read";
+        btn.classList.remove('book-not-read')
+        btn.classList.add('book-read');
+    }
+}
 Book.prototype.toggle = function() {
   const readButtons = document.querySelectorAll('.read-status');
 
   readButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        if (btn.textContent === "Read") {
-            btn.textContent = "Not Read";
-            btn.classList.remove('book-read')
-            btn.classList.add('book-not-read');
-        } else {
-            btn.textContent = "Read";
-            btn.classList.remove('book-not-read')
-            btn.classList.add('book-read');
-        }
-    });
+    btn.addEventListener('click', handleClick);
   });
 };
 
 const changeButton = new Book();
 
-
-// changeButton.toggle();
+window.addEventListener('DOMContentLoaded',() => {
+    changeButton.toggle();
+});
 
 
 
